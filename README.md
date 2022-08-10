@@ -8,11 +8,12 @@ For nextflow workflow to run without problem you need to organise your data firs
 cd nextCov
 ```
 
-Make two directories/folders with the following command inside nextCov directory:
+Make two directories/folders with the following command inside nextCov directory. We already provide these directories and an examplary data in this repository so you can skip the command below.
 
 ```bash
 mkdir data resources
 ```
+
 The command `mkdir` will make directories `data` and `resources`. The `data` directory contains your sequencing data (paired end reads) and resources directory contains the **reference genome** fasta file, adapter sequence fasta file used by trimmomatic and other additional files that you might require for your downstream analysis. An example of the contents of `resources` directory is shown below:
 
 ```bash
