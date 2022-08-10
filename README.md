@@ -2,7 +2,8 @@
 nextCov is a Nextflow based short read variant calling and assembly pipeline for COVID short read paired-end sequencing data. It contains currently 7 independent modules that can be flexibely used in any order. The guidelines to run the pipeline on `ibex` or on `local` computer are as follows:
 
 # Organising your data
-For nextflow workflow to run without problem you need to organise your data first. This is a common step for both IBEX or your local system. Make two directories/folders with the following command:
+For nextflow workflow to run without problem you need to organise your data first. This is a common step for both IBEX or your local system. Now clone this repository using `git clone https://github.com/Rohit-Satyam/nextCov.git` to download all the scripts. Once everything is organised your working directory (here `illumina/`) will look like this
+Make wo directories/folders with the following command:
 ```bash
 mkdir data resources
 ```
@@ -19,7 +20,22 @@ resources/
 ├── sequence.fasta.fai
 └── universal_adapter.fasta
 ```
-Now clone this repository using `git clone `
+
+```
+illumina/
+├── 00_indexbwa.nf
+├── 01_fastqc.nf
+├── 02_trimming.nf
+├── 04_alignbwa.nf
+├── 05_lowCoverage.nf
+├── 06_gatk.nf
+├── 07_assembly.nf
+├── data
+├── resources
+
+```
+
+> For the moment, organise your data as shown above. The scripts (`.nf` files) must be in same 
 
 ## Running on IBEX
 Running this pipeline on IBEX is super easy since all the modules required are already installed there and you can load all necessary modules using a single liner:
@@ -27,6 +43,30 @@ Running this pipeline on IBEX is super easy since all the modules required are a
 ```bash
 module load nextflow fastqc multiqc gatk bcftools bwa bedtools trimmomatic tabix covtobed samtools
 ```
+The commands to run
+```
+# To index reference fasta file
+nextflow run 00_indexbwa.nf --ref "resources/sequence.fasta" --outdir="results/00_indexes"
 
+# Running fastqc on multiple files
+nextflow run 01_fastqc.nf --raw 'data/*R{1,2}_001.fastq.gz' --outdir="results/01_rawfastqc"
 
+# Trimming the data (optional) based on fastqc report
+nextflow run 02_trimming.nf --raw "data/*R{1,2}_001.fastq.gz" --run "ibex"  
+
+# Fastqc on trimmed reads
+nextflow run 01_fastqc.nf --raw "results/02_trimmed/*R{1,2}_P.fastq.gz" --outdir "results/03_trimmedfastqc" 
+
+# Aligning reads
+nextflow run 04_alignbwa.nf --raw "results/02_trimmed/*R{1,2}_P.fastq.gz" 
+
+# Identifying regions of low coverage to mask in the final assembly
+nextflow run 05_lowCoverage.nf --raw 'results/04_alignments/*bam'
+
+# Running GATK variant calling
+nextflow run 06_gatk.nf
+
+# Making final assembly
+nextflow run 07_assembly.nf
+```
 
