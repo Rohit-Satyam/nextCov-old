@@ -76,5 +76,17 @@ nextflow run 06_gatk.nf
 # Making final assembly
 nextflow run 07_assembly.nf
 ```
+The resulting directories will be as follows:
 
+```
+results/
+├── 00_indexes
+├── 01_rawfastqc
+├── 02_trimmed
+├── 03_trimmedfastqc
+├── 04_alignments
+├── 05_lowcoverageBed
+├── 06_gatkresults
+└── 07_assembly
+```
 > **NOTE:** `*R{1,2}_001.fastq.gz` is a regular expression (a string common to all fastq files). R1_001.fastq.gz and R2_001.fastq.gz are common to all paired end files and therefore can be reduced to `R{1,2}_001.fastq.gz`
