@@ -8,7 +8,7 @@ For nextflow workflow to run without problem you need to organise your data firs
 cd nextCov
 ```
 
-Make two directories/folders with the following command inside nextCov directory. We already provide these directories and an examplary data in this repository so you can skip the command below.
+Make two directories/folders with the following command inside nextCov directory. We already provide these directories and an examplary data in this repository so you can skip the command below. Replace this data/files with your actual data
 
 ```bash
 mkdir data resources
@@ -77,3 +77,4 @@ nextflow run 06_gatk.nf
 nextflow run 07_assembly.nf
 ```
 
+> **NOTE:** `*R{1,2}_001.fastq.gz` is a regular expression (a string common to all fastq files). R1_001.fastq.gz and R2_001.fastq.gz are common to all paired end files and therefore can be reduced to `R{1,2}_001.fastq.gz`
