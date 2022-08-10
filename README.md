@@ -1,0 +1,2 @@
+# nextCov
+Nextflow COVID pipeline
