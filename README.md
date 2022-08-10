@@ -19,7 +19,7 @@ resources/
 ├── sequence.fasta.fai
 └── universal_adapter.fasta
 ```
-
+Now clone this repository using `git clone `
 
 ## Running on IBEX
 Running this pipeline on IBEX is super easy since all the modules required are already installed there and you can load all necessary modules using a single liner:
