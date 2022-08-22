@@ -1,8 +1,19 @@
 # nextCov
 nextCov is a Nextflow based short read variant calling and assembly pipeline for COVID short read paired-end sequencing data. It contains currently 7 independent modules that can be flexibely used in any order. The guidelines to run the pipeline on `ibex` or on `local` computer are as follows:
 
+# UPDATE:
+### Date `22-Aug-2022`
+1. Added the `--help` argument to view help for running each module (`.nf` file).
+2. Included `DRAGMAP` indexing option to test `DRAGEN-GATK` pipeline when the `DRAGMAP` issue is resolved.
+3. Added script to calculate horizontal and vertical coverage stats post alignment. 
+4. Markduplicates is now an independent step. `Multiqc` will be run for steps `FASTQC` and `MARKDUPLICATES` by default. We included `BQSR` step and we save `BEFORE` and `AFTER` recalibration plots. However, `BQSR` might be removed or made optional in the pipeline.
+5. User can now specify threads in several steps.
+6. Fixed somme minor bugs in `fastqc` and `trimming`steps.
+
+
 # Organising your data
 For nextflow workflow to run without problem you need to organise your data first. This is a common step for both IBEX or your local system. First clone this repository using `git clone https://github.com/Rohit-Satyam/nextCov.git` to download all the scripts. 
+
 
 ```
 cd nextCov
