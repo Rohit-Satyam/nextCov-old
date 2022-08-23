@@ -2,6 +2,9 @@
 nextCov is a Nextflow based short read variant calling and assembly pipeline for COVID short read paired-end sequencing data. It contains currently 7 independent modules that can be flexibely used in any order. The guidelines to run the pipeline on `ibex` or on `local` computer are as follows:
 
 # UPDATE:
+### Date `23-Aug-2022`
+1. `Resolved `MarkDdduplicateSpark`failing on large BAM files due to memory constraints using `--jobs` option.
+
 ### Date `22-Aug-2022`
 1. Added the `--help` argument to view help for running each module (`.nf` file).
 2. Included `DRAGMAP` indexing option to test `DRAGEN-GATK` pipeline when the `DRAGMAP` issue is resolved.
