@@ -2,6 +2,8 @@
 nextCov is a Nextflow based short read variant calling and assembly pipeline for COVID short read paired-end sequencing data. It contains currently 7 independent modules that can be flexibely used in any order. The guidelines to run the pipeline on `ibex` or on `local` computer are as follows:
 
 # UPDATE:
+### Date `29-Aug-2022`
+1. Edited the resources files. The exclude BED contained different Chromosome name.
 ### Date `25-Aug-2022`
 1. Included variant summarization step in `08_gatk.nf`.
 2. Update README. Added primer file in resources.
