@@ -73,7 +73,7 @@ nextCov/
 Running this pipeline on IBEX is super easy since all the modules required are already installed there and you can load all necessary modules using a single liner:
 
 ```bash
-module load nextflow fastqc multiqc gatk bcftools bwa bedtools trimmomatic tabix covtobed samtools gnuplot
+module load nextflow fastqc multiqc gatk bcftools bwa bedtools trimmomatic tabix covtobed samtools mummer
 ```
 Each `.nf` file is like a module as well  and the instructions and command syntax can be obtained using `--help` flag. Eg:
 
