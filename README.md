@@ -91,7 +91,7 @@ conda install mamba -n base -c conda-forge
 conda create -n nextCov
 conda activate nextCov
 ## Install necessary packages
-mamba install -c conda-forge -c bioconda nextflow fastqc multiqc trimmomatic mummer assembly-stats dragmap covtobed mosdepth gatk4 ivar samtools openjdk==8.0.332=h166bdaf_0
+mamba install -c conda-forge -c bioconda nextflow fastqc multiqc trimmomatic mummer assembly-stats nextclade dragmap covtobed mosdepth gatk4 ivar samtools openjdk==8.0.332=h166bdaf_0
 ```
 The commands to run
 ```
