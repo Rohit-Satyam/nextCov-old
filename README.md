@@ -156,6 +156,7 @@ results/
 Below given is a ready to use `sbatch` script that can be used to submit the jobs on cluster. Replace my email with yours to receive the job completion update on your email.
 
 ```
+#!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --mem=500GB
 #SBATCH --partition=batch
